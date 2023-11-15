@@ -1,0 +1,40 @@
+<div mat-dialog-title>
+    <h1>{{data ? 'Edit': 'Add'}} Formulário de associados</h1>
+</div>
+<form [formGroup]="associadoForm" (ngSubmit)="onSubmit()">
+    <div mat-dialog-content class="content">
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Nome:</mat-label>
+                <input matInput type="text" placeholder="i.e David" formControlName="nome">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Email:</mat-label>
+                <input matInput type="email" placeholder="i.e david@gmail.com" formControlName="email">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Telefone:</mat-label>
+                <input matInput placeholder="i.e Smith" formControlName="telefone">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-radio-group aria-label="Selecione uma opção" formControlName="conjunto">
+                <mat-label><b>Conjunto:</b></mat-label>
+                <mat-radio-button value="a">A</mat-radio-button>
+                <mat-radio-button value="b">B</mat-radio-button>
+                <mat-radio-button value="c">C</mat-radio-button>
+                <mat-radio-button value="d">D</mat-radio-button>
+            </mat-radio-group>
+            <mat-form-field appearance="outline">
+                <mat-label>Número:</mat-label>
+                <input matInput placeholder="2" formControlName="numero">
+            </mat-form-field>
+        </div>
+    </div>
+    <div mat-dialog-actions class="action-btns">
+        <button style="margin: 10px;" mat-raised-button color="accent" type="submit">{{data ? 'Atualizar': 'Salvar'}}</button>
+        <button mat-raised-button type="button" color="warn" [mat-dialog-close]="false">Cancelar</button>
+    </div>
+</form>
